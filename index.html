@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/reset.css">
+    <link rel="stylesheet" href="src/main.css">
+    <script async src="src/main.js"></script>
+    <title>Campo Minado</title>
+</head>
+<body>
+    <header>
+        <div class="card">
+            <select name="level" id="level">
+                <option value="1">Nível 1</option>
+                <option value="2">Nível 2</option>
+                <option value="3">Nível 3</option>
+            </select>
+            <button id="btn-flag">
+                <img src="/img/flag.png" alt="flag">
+            </button>
+            <p class="num-mines"><img src="/img/bomb.png" alt="bomb" class="img-header"><span></span></p>
+            <p id="timer">00:00:00</p>
+            <button id="btn-reset">
+                <img src="/img/reset.png" alt="reset">
+            </button>
+        </div>
+    </header>
+    <main>
+        <section id="game-area"></section>
+        <section id="modal"></section>
+    </main>
+    <footer>
+        &copy; Jonatas Lima - 2023
+    </footer>
+</body>
+</html>

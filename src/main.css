@@ -1,0 +1,261 @@
+:root {
+    --bg-color-main: #eee;
+    --font-main: Arial, Helvetica, sans-serif;
+
+    --bg-color-header: #35b555;
+    --color-header: #fff;
+
+    --bg-color-surface: rgb(30, 184, 30);
+    --bg-color-surface-hover: rgb(38, 206, 38);
+    --test: ;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
+    background-color: var(--bg-color-main);
+    font-family: var(--font-main);
+
+    overflow: hidden;
+
+    display: grid;
+    grid-template-areas: "header"
+        "main"
+        "footer";
+    grid-template-columns: 100%;
+    grid-template-rows: 12% auto 5%;
+}
+
+header {
+    grid-area: header;
+
+    background-color: transparent;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    grid-area: main;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+footer {
+    grid-area: footer;
+
+    background-color: var(--color-header);
+    border-top: 2px solid black;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background-color: var(--bg-color-header);
+    color: white;
+    border-radius: 10px;
+
+    display: flex;
+    flex-flow: row nowrap;
+    min-width: 500px;
+    height: auto;
+    padding: 15px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.img-header {
+    width: 30px;
+    margin-left: 2px;
+}
+
+.num-mines {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.wins>h1 {
+    color: gold;
+    font-size: 30px;
+}
+
+section#game-area {
+    width: auto;
+    height: auto;
+    z-index: 1;
+    user-select: none;
+}
+
+section#modal {
+    position: absolute;
+    z-index: 50;
+    background-color: var(--color-header);
+    width: 50%;
+    max-width: 500px;
+    height: auto;
+    padding: 50px 10px;
+
+    border-radius: 10px;
+    box-shadow: 0 0 1em black;
+    opacity: .9;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(102vh);
+}
+
+.show {
+    transition: transform .85s;
+    transform: translateY(0) !important;
+}
+
+.hide {
+    transition: transform .85s .8s;
+    transform: translateY(102vh) !important;
+}
+
+.go {
+    font-size: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: red;
+    margin: 50px 0;
+}
+
+#game-area>table,
+#game-area>table>tr,
+#game-area>table>tr>td {
+    border: 3px solid transparent;
+}
+
+#game-area>table>tr>td {
+    background-color: var(--color-header);
+    position: relative;
+}
+
+.lv1>table>tr>td {
+    width: 40px;
+    height: 40px;
+}
+
+.lv2>table>tr>td {
+    width: 30px;
+    height: 30px;
+}
+
+.lv3>table>tr>td {
+    width: 25px;
+    height: 25px;
+}
+
+.underground {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    user-select: none;
+}
+
+.surface {
+    position: absolute;
+    z-index: 10;
+    background-color: var(--bg-color-surface);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform .5s;
+}
+
+.surface:hover {
+    background-color: var(--bg-color-surface-hover);
+}
+
+.surface:active {
+    transform: scale(1.1);
+}
+
+.bomb {
+    width: 90%;
+    height: 90%;
+    margin: 0;
+    padding: 0;
+}
+
+.card>button {
+    max-height: 50px;
+    max-width: 50px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.card>button:hover {
+    opacity: .7;
+}
+
+.card>button:active {
+    transform: scale(1.1);
+}
+
+.card>button>img {
+    width: 90%;
+    height: 90%;
+}
+
+.card>select {
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 18px;
+}
+
+.card>select>option {
+    background-color: var(--bg-color-header);
+    border: none;
+    outline: none !important;
+    padding: 0;
+    margin: 0;
+}
+
+.surface {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.surface>img {
+    height: 75%;
+}
+
+@keyframes to-dig {
+    0% {
+        transform: scale(.8);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
